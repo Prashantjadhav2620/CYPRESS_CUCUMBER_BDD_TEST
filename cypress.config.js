@@ -31,4 +31,5 @@ module.exports = defineConfig({
     "cypress/**/stepDefinitions/*.ts"
   ],
   "cucumberautocomplete.strictGherkinCompletion": true
+
 });

@@ -1,4 +1,4 @@
-Feature: Instagram validation
+Feature: Amazon validation
 
   Background: Login to Amazon
     Given I am visit the Amazon Page
@@ -9,7 +9,7 @@ Feature: Instagram validation
     Then I am Click the Sign button
 
 
-  Scenario: Product Add to Cart
+  Scenario Outline: Product Add to Cart
     Then I am search the "<item>" in SearchBox
     Then I choose a random item from the search results
     Then selected Item Add to Cart
