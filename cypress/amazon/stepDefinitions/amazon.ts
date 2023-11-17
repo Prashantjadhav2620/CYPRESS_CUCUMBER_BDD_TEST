@@ -1,3 +1,4 @@
+
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given("I am visit the Amazon Page", () => {
@@ -10,7 +11,7 @@ Then("click sign button", () => {
 });
 
 When("I am Enter the valid userName {string}", (username: string) => {
-  cy.get('input[type="email"]').click().type(username);
+  cy.get('input[type="email"]').clear().type(Cypress.env(username));
 });
 
 Then("I am Click the Login button", () => {
@@ -23,7 +24,7 @@ Then("I am Click the Sign button", () => {
 });
 
 Then("I am Enter the valid password {string}", (pass: any) => {
-  cy.get('input[type="password"]').click().type(pass);
+  cy.get('input[type="password"]').click().type(Cypress.env(pass));
 });
 
 Then("I am search the {string} in SearchBox", (Item: any) => {
@@ -41,16 +42,19 @@ Then("I am choose the product and delete it", () => {
 });
 
 Then("I choose a random item from the search results", () => {
-  cy.get('[data-component-type="s-search-result"]').then(($results) => {
-    const randomIndex = Math.floor(Math.random() * $results.length);
-    cy.wait(1000);
-    cy.wrap($results[randomIndex]).click();
-    cy.wait(4000);
-  });
+  cy.get('[data-asin="B0CHNSDSG6"] > .sg-col-inner > .s-widget-container > [data-action="puis-card-container-declarative"] > .puis-card-container > :nth-child(1) > :nth-child(1) > .puisg-col-8-of-16 > :nth-child(1) > .a-spacing-small > .puis-padding-right-small > .a-size-mini > .a-link-normal > .a-size-medium').eq(0).click()
+  // cy.get('[data-component-type="s-search-result"]').then(($results) => {
+  //   // const randomIndex = Math.floor(Math.random() * $results.length);
+  //   const randomIndex = Math.floor(Math.random() * 2);
+  //   cy.wait(1000);
+  //   cy.wrap($results[randomIndex]).click();
+  //   cy.wait(4000);
+  // });
 });
 
 Then("selected Item Add to Cart", () => {
   cy.wait(5000);
+  // cy.get(`div [data-feature-name="exports_desktop_undeliverable_buybox"] span.a-declarative a.a-link-normal`).click()
   cy.get('[name="submit.add-to-cart"]').click();
 });
 

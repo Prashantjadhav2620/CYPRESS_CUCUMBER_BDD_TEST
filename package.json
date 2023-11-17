@@ -16,7 +16,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0"
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "dotenv": "^16.3.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
